@@ -11,6 +11,7 @@
         android:theme="@style/Theme.Authentification">
         <activity android:name="com.cit.BankApplication.SecondActivity"></activity>
         <activity android:name="com.cit.BankApplication.ThirdActivity"></activity>
+        <activity android:name=".LogoutActivity"></activity>
         <activity android:name="com.cit.BankApplication.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

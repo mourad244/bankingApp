@@ -23,21 +23,21 @@
     <TextView
         android:id="@+id/sPrice"
         android:layout_toRightOf="@id/image"
-        android:layout_marginLeft="250dp"
+        android:layout_marginLeft="230dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/darker_gray"
         android:text="@string/sPrice"
 
         />
+
     <TextView
         android:id="@+id/sdate"
-        android:layout_toRightOf="@id/image"
-        android:layout_below="@id/sPrice"
-        android:layout_marginLeft="230dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/darker_gray"
+        android:layout_below="@id/sPrice"
+        android:layout_marginLeft="210dp"
+        android:layout_toRightOf="@id/image"
         android:text="@string/sdate"
-        />
+        android:textColor="@android:color/darker_gray" />
 </RelativeLayout>

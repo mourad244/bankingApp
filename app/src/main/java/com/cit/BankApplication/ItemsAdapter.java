@@ -24,7 +24,6 @@ public class ItemsAdapter extends ArrayAdapter<Items> {
 
         this.mContext=context;
         this.mResource =resource;
-
     }
 
     @NonNull
@@ -37,8 +36,6 @@ public class ItemsAdapter extends ArrayAdapter<Items> {
         TextView txtFacture =convertView.findViewById(R.id.sFacture);
         TextView txtPrice =convertView.findViewById(R.id.sPrice);
         TextView txtDate = convertView.findViewById(R.id.sdate);
-
-
 
         imageView.setImageResource(getItem(position).getImage());
         txtFacture.setText(getItem(position).getOperation());
