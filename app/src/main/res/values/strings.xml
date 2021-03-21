@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Application bancaire</string>
+    <string name="erreur">Vérifier votre Nom &amp; Mot de passe</string>
+    <string name="btnLog">Connexion</string>
+    <string name="forgotpass">Mot de passe oublié?</string>
+    <string name="transaction"><b>Transactions</b></string>
+    <string name="facture">Facture Internet</string>
+    <string name="sPrice">260,00$</string>
+    <string name="sdate">23/11/2006</string>
+
+    <string name="numCompte">Numéro Compte</string>
+    <string name="numRef">N° Référence</string>
+    <string name="descr">Description</string>
+    <string name="dateOper">Date Opération</string>
+    <string name="dateVal">Date Validité</string>
+    <string name="montant">Montant</string>
+    <string name="solde">Solde</string>
+    <string name="saveUser">Enregistrer utilisateur</string>
+    <string name="password">Mot de passe</string>
+    <string name="nom">Nom</string>
+
+
+</resources>

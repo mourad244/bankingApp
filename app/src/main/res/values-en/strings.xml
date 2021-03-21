@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bank Application</string>
+    <string name="erreur">Check your Name &amp; Passwor</string>
+    <string name="forgotpass">Forgot password</string>
+    <string name="transaction"><b>Transactions</b></string>
+    <string name="facture">Internet bill</string>
+    <string name="sPrice">260,00$</string>
+    <string name="sdate">23/11/2006</string>
+    <string name="numCompte">Account Number</string>
+    <string name="numRef">Reference Number</string>
+    <string name="descr">Description</string>
+    <string name="dateOper">Operation date</string>
+    <string name="dateVal">Validity date</string>
+    <string name="montant">Amount</string>
+    <string name="solde">Balance</string>
+    <string name="saveUser">Save user</string>
+    <string name="btnLog">LOGIN</string>
+    <string name="password">Password</string>
+    <string name="nom">Name</string>
+</resources>
