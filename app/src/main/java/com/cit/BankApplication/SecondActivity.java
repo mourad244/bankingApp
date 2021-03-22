@@ -3,24 +3,28 @@ package com.cit.BankApplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
+
+
 
 public class SecondActivity extends AppCompatActivity {
+    public static String  PREFS_NAME="mypre";
+    public static String PREF_USERNAME="username";
+    public static String PREF_PASSWORD="password";
 
     @BindView(R.id.listView)
     ListView listView;
+    String user;
 
 
     @Override
@@ -28,6 +32,7 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         ButterKnife.bind(this);
+
         //create ArrayList of String
         ArrayList<Items> arrayList = new ArrayList<Items>();
 
@@ -68,5 +73,33 @@ public class SecondActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void onStart(){
+        super.onStart();
+
+        //read username and password from SharedPreferences
+        getUser();
+    }
+    public void getUser(){
+        SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
+        String username= pref.getString(PREF_USERNAME,null);
+        String password = pref.getString(PREF_PASSWORD,null);
+        TextView view=(TextView)findViewById(R.id.txtuser);
+        view.setText("Welcome "+username);
+        if (username != null || password != null) {
+            //directly show logout form
+
+        }
+    }
+    public void logout(View view){
+        SharedPreferences sharedPrefs =getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        editor.clear();
+        editor.apply();
+        user="";
+        //show login form
+        Intent intent=new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

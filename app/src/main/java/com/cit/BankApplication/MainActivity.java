@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     public static String PREF_USERNAME="username";
     public static String PREF_PASSWORD="password";
 
-
     @BindView(R.id.sName)
     EditText Name;
     @BindView(R.id.sPassword)
@@ -38,42 +37,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        loadData();
+
         /*Name = (EditText)findViewById(R.id.sName);
         Password = (EditText)findViewById(R.id.sPassword);
         connecter = (Button)findViewById(R.id.btnLogin);*/
     }
-    public void onStart(){
-        super.onStart();
-        //read username and password from SharedPreferences
-        getUser();
-    }
-    public void doLogin(View view){
-        EditText txtuser=(EditText)findViewById(R.id.sName);
-        EditText txtpwd=(EditText)findViewById(R.id.sPassword);
-        String username="myusername";
-        String password="mypassword";
-        if(txtuser.getText().toString().equals(username) && txtpwd.getText().toString().equals(password)){
-            CheckBox ch=(CheckBox)findViewById(R.id.ch_rememberme);
-            if(ch.isChecked())
-                rememberMe(username,password); //save username and password
-            //show logout activity
-            showLogout(username);
 
-        }
-        else{
-            Toast.makeText(this, "Invalid username or password",Toast.LENGTH_LONG).show();
-        }
-
-
-    }
     @OnClick(R.id.btnLogin)
     public void onClick(View v) {
         validate(Name.getText().toString(), Password.getText().toString());
     }
 
     private void  validate(String userName, String userPassword) {
+        String username="mourad244";
+        String password="1234";
+        if ((userName.equals(username) && (userPassword.equals(password)))){
+            CheckBox ch=(CheckBox)findViewById(R.id.ch_rememberme);
+            if(ch.isChecked())
+                rememberMe(username,password); //save username and password
+            //show logout activity
 
-        if ((userName.equals("mourad244") && (userPassword.equals("1234")))){
             Intent  intent =new Intent(MainActivity.this, SecondActivity.class);
             startActivity(intent);
         }
@@ -89,16 +73,7 @@ public class MainActivity extends AppCompatActivity {
          else messageError.setVisibility(View.VISIBLE);
     }
 
-    public void getUser(){
-        SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
-        String username= pref.getString(PREF_USERNAME,null);
-        String password = pref.getString(PREF_PASSWORD,null);
 
-        if (username != null || password != null) {
-            //directly show logout form
-            showLogout(username);
-        }
-    }
 
     public void rememberMe(String user, String password){
         //save username and password in SharedPreferences
@@ -106,12 +81,12 @@ public class MainActivity extends AppCompatActivity {
                 .edit()
                 .putString(PREF_USERNAME,user)
                 .putString(PREF_PASSWORD,password)
-                .commit();
+                .apply();
     }
-    public void showLogout(String username){
-        //display log out activity
-        Intent intent=new Intent(this, LogoutActivity.class);
-        intent.putExtra("user",username);
-        startActivity(intent);
+    public void loadData(){
+        Name.setText(getSharedPreferences(PREFS_NAME,MODE_PRIVATE).getString(PREF_USERNAME,""));
+        Password.setText(getSharedPreferences(PREFS_NAME,MODE_PRIVATE).getString(PREF_PASSWORD,""));
+        if(Name!=null && Password!=null)
+            validate(Name.getText().toString(),Password.getText().toString());
     }
 }

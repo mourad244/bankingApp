@@ -7,7 +7,21 @@
     android:orientation="vertical"
     tools:context=".SecondActivity"
     >
-
+    <Button
+        android:id="@+id/btlogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="260dp"
+        android:onClick="logout"
+        android:text="Log out"
+        android:layout_below="@+id/txtuser"
+        />
+    <TextView
+        android:id="@+id/txtuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dip"
+        />
     <TextView
         android:id="@+id/Transactions"
         android:layout_width="wrap_content"
